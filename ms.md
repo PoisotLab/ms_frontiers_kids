@@ -1,4 +1,7 @@
 PL_FFYM Experience
+Contributors:
+- Gracielle
+- Norma
 
 Outline:
 1. Species are not everywhere: why? (focus on one specific species)
