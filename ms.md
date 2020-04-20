@@ -1,58 +1,76 @@
 ## PL_FFYM Experience
 #### Contributors:
-- Gracielle
-- Norma
 
-Outline:
+- Gracielle  
+- Norma  
+- Francis  
+
+### Outline
 1. Species are not everywhere: why? (focus on one specific species)
-1.2 How can we find them without having to look everywhere?
-2.What kind of questions we can ask computers
-2. 1 What kind of information we give to computers
+1.1 How can we find them without having to look everywhere?
+1.2.What kind of questions we can ask computers
+2. What kind of information we give to computers
 3. How computers "think"
 4. What kind of answers computers give and how we can use them
 5. Interpret the map and invite for action - how far you have to go to see a "racoon"?
 
-Have you ever noticed how, when we travel to a place far away, we stop seeing animals we usually see back home?  
+
+### Main text
+Have you ever noticed how when we travel to a place far away, we stop seeing animals we usually see back home?  
 Or when that biologist on TV goes to a place that is really far from where you live, she shows a lot of birds, mammals and plants you have never seen before?  
-And how do we know where we can find those animals and plants? We could try to go to every place on Earth and list all living things that live in each spot.  
+And how do we know where we can find those animals and plants?  
+We could try to explore every corner on Earth and list all living things that are present in each spot. 
 That would be a tremendous work, and actually scientists started to understand nature doing things like that.  
-But turns out that now ecologists can use computers to answer these questions without having to leave their labs.  
+But it turns out that ecologists can now use computers to answer these questions without having to leave their labs!  
 
-Imagine we want to know how far we should go to find a racoon. You first need to know a little bit about them, like where they live and what they like to eat. So you look them up and find a couple of information:  
-- We know racoons have their mating season around January and that it lasts approximately 63 days, when the female gives birth to her offspring (4-6 cubs).  
+Imagine we want to know how far we should go to find a racoon.  
+You first need to know a little bit about them, like where they live and what they like to eat.  
+So you look them up and find a couple of information:  
+Their mating season happens around January and lasts approximately 63 days, after which the female gives birth to her offspring (4-6 cubs).  
 This is usually when you see groups of racoons, because they are mostly solitary when they are adults (***and who isn't? - kids cry - end of paper***).  
-- The little racoons will grow to be independent for 10 months, and then they will find a place to live and hunt their own food. 
-- Speaking of lunch time, their front legs are very sensitive, which is great to discover what is in the menu.  
-They have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs and rodents (such as rats).  
-With such a varied diet, they are capable to comfortably live close to humans during the next 10 years of their lives.  
-- Racoons are great explorers! They are capable to run up to 15 miles per hour or swim if necessary. 
-- Wooded areas near to water are the perfect spots for a racoon to live, but any quiet place near to food and water can be a den.  
+At 10 months old, the baby racoons will be independent, hunting their own food and choosing a new place to live.  
+Their front legs are very sensitive, which is a very useful tool to discover what is on the menu when you have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs and rodents (such as rats).  
+With such a varied diet, they can take advantage of us, humans, by stealing our food and can thus live comfortably next to us during the next 10 years of their life expectancy.  
+Racoons are also great explorers! They are capable of running up to 15 miles per hour and of swimming, if necessary.  
+The ideal home for a raccoon is usually a wooded area near to a water source, but any quiet place with food and water can be a den.
 
-To ask computers to help us find them, we should provide some information, such as those we just described: what kind of climate the racoons we already found like the most, what racoons need to eat, or how long they can walk (can they climb really high mountains? can they cross rivers? what if there’s a completely different environment on the way, can they go through it?). That way, the computer can learn about racoons too.  
+When we ask computers to help us find them, we have to provide them with some information, such as those we just described.  
+We could also use the kind of climate the racoons we already found typically prefer, or even the known distribution of what racoons need to eat.  
+It might also be useful to know how long and where they can walk (Can they climb really high mountains? Can they cross rivers? What if there’s a completely different environment in the way, can they go through it?).  
+Doing so, computers can start learning about racoons and their distribution.
 
-
-Once your computer have learned all about what we told them, it will think a while.  
+Once a computer has learned all about what we told it, it will think for a while.  
 But how do computers think?  
 They use something we call algorithm, which is a sequence of orders it follows to reach an answer.  
-For example, when we have to go out, we have to decide what we should wear.  
-So we gather some information, such as what are the clean clothes available and if it’s raining or not.  
-The following step would be to exclude options based on these informations, and we use a sequence of statements: if it’s raining, we’ll wear a jacket and boots; if it’s not raining, we’ll wear a t-shirt.  
-If it’s raining, but the jacket is not clean… Well, you can either use a dirty jacket or stay home!  
+For example, when we have to go outside, we have to decide what we should wear.  
+So we gather some information, such as which clean clothes are available and if it’s raining or not.  
+The following step would be to exclude options based on these information, using a sequence of statements: if it’s raining, we'll wear a jacket and boots; if it’s not raining, we’ll wear a t-shirt.  
+If it’s raining, but the jacket is not clean… Well, you can either use a dirty jacket or stay home!
 
 [labyrinth game]
 > We'll draw a labyrinth and a couple of instructions. Kids have to follow the instructions to find the right path in the labyrinth.
 
-Computers can apply this same logic to our racoons problem: if it’s too cold and snowy, racoons will probably not be there. If there’s no trash, they will probably not be there either. [IT’S JUST A DRAFT and I’m not familiar with racoons!!!! Do they fly? IDK]  
+Computers can apply the same logic to our racoons problem: if it’s too cold and snowy, or too hot and dry, racoons will probably not be there.  
+If there’s no food they can eat, they will probably not be there either.  
+On the contrary, if there is a temperate forest, where the temperature is neither too cold nor too hot, and if there is enough clean water for them to drink, they might be present, hidden somewhere in the woods.  
+They might also be present if there is a city or a village with lots of food for them to eat.  
+Who wouldn't be attracted to this trash buffet?
 
-~Computers will help us to see life from the animal’s point of view, what would be the most reasonable choice for daily racoon problems, like where to find food, water or a potential partner to have offspring. The world is changing and racoons will be constantly moving and adapting to new places; having a common language with computers allow us organize, quantify and understand what will be an ideal place to find a racoon.~
+Computers help us see life from the animal’s perspective.  
+What would be the most reasonable choice for a raccoon's everyday problems, like where to find food, water or a potential partner to have offspring with?  
+The world is changing and racoons will constantly be moving and adapting to new places; having a common language with computers allow us to organize, to quantify and to understand what would be an ideal place to find a racoon now or in a near future.
 
+Computers give us different kinds of numbers (like probabilities).  
+According to the information we provided, they will calculate an unique number, between 0 and 1, for every place in the world.  
+If this number is low, you might not be able to find a raccoon there.  
+However, if this number is high, a raccoon might be hiding there somewhere.  
+What's great with computers is that we can use these numbers to make beautiful maps!
 
-[Paragraph 4] Computers give us different kinds of numbers (like probabilities)
-- We can use these numbers to make maps!
-
-[Paragraph 5]  The Map!
-- Interpretation of the suitability gradient
-- Locate where you live and see if it’s easy to find a racoon there!
-- Model validation: help us see if there’s a racoon where we said there is! / does the map says there is a racoon near your house but there’s no way to find a racoon there?
-
-
+We made one such map using three types of information: the  precise location where some raccoons have been observed in the past, the temperatures, and the total precipitations that were recorded at these locations.  
+Our computer learned the suitable habitat for a raccoon, in terms of temperature and precipitation.  
+Regions with a similar climate were given a high value and regions with an unsuitable climate were given a low value.  
+Remember that regions with a high value, near 1, might contain a raccoon and that regions with a low value, near 0, might not contain any.  
+Locate where you live in the world and see if it would be easy for you to find a racoon there!  
+Help us validate our model by verifying if there is indeed a racoon where we said there might be!  
+Does the map say there might be a racoon near your house but there’s no way to find a racoon there?  
+In your opinion, how could we have made the map more realistic? 
