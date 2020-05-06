@@ -90,3 +90,6 @@ replace!(x -> x <= threshold ? NaN : x, sdm_raccoon.grid)
 pred_map = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude", dpi = 150)
 heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Probability of seeing a raccoon")
 
+## Export figures
+savefig(occ_map,  joinpath("fig", "occurrences.png"))
+savefig(pred_map, joinpath("fig", "predictions.png"))
