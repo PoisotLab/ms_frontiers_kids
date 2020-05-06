@@ -90,9 +90,16 @@ replace!(x -> iszero(x) ? NaN : x, sdm_raccoon.grid)
 threshold = quantile(filter(!isnan, sdm_raccoon.grid), 0.05)
 replace!(x -> x <= threshold ? NaN : x, sdm_raccoon.grid)
 
+# Group predictions in categories
+lim1 = 0.20
+lim2 = 0.60
+replace!(x -> x <= lim1 ? 0.0 : x, sdm_raccoon.grid)
+replace!(x -> lim1 < x < lim2 ? 0.5 : x, sdm_raccoon.grid)
+replace!(x -> x >= lim2 ? 1.0 : x, sdm_raccoon.grid)
+
 # Map predictions
 pred_map = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude", dpi = 150)
-heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Probability of seeing a raccoon")
+heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
 
 ## Export figures
 savefig(temp_map, joinpath("fig", "temperature.png"))
