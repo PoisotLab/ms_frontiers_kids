@@ -28,7 +28,7 @@ filter!(GBIF.have_ok_coordinates, raccoon_occ)
 length(raccoon_occ)
 
 # Get the temperature and precipitation
-temperature = clip(SimpleSDMLayers.worldclim(1), raccoon_occ)
+temperature   = clip(SimpleSDMLayers.worldclim(1), raccoon_occ)
 precipitation = clip(SimpleSDMLayers.worldclim(12), raccoon_occ)
 
 # Map raccoon occurrences
@@ -97,9 +97,20 @@ replace!(x -> x <= lim1 ? 0.0 : x, sdm_raccoon.grid)
 replace!(x -> lim1 < x < lim2 ? 0.5 : x, sdm_raccoon.grid)
 replace!(x -> x >= lim2 ? 1.0 : x, sdm_raccoon.grid)
 
+# Custom colorpicking function
+colorpick(cg::ColorGradient, n::Int) = RGB[cg[i] for i in LinRange(0, 1, n)]
+
 # Map predictions
-pred_map = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude", dpi = 150)
-heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
+pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
+                   xlab= "Longitude", ylab = "Latitude",
+                   framestyle = :box, dpi = 150, size = (600, 300))
+    heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
+    scatter!(pred_map, [NaN NaN NaN NaN],
+             c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
+             labels = ["High" "Medium" "Low" "Not suitable"],
+             legend = :outerbottomright, legendtitle = "Suitability",
+             foreground_color_legend = nothing,
+             legendtitlefontsize = 10)
 
 ## Export figures
 savefig(temp_map, joinpath("fig", "temperature.png"))
