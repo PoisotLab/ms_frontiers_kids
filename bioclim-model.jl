@@ -32,8 +32,12 @@ temperature = clip(SimpleSDMLayers.worldclim(1), raccoon_occ)
 precipitation = clip(SimpleSDMLayers.worldclim(12), raccoon_occ)
 
 # Map raccoon occurrences
-occ_map = heatmap(temperature, xlab= "Longitude", ylab = "Latitude",
-                  colorbar_title = "Average Temperature", dpi = 150)
+temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
+                   colorbar_title = "Temperature (° C)", dpi = 150)
+prec_map = heatmap(precipitation, c = :blues, xlab= "Longitude", ylab = "Latitude",
+                   colorbar_title = "Precipitation (mm)", dpi = 150)
+occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
+                   colorbar = :none, dpi = 150)
 scatter!(occ_map, longitudes(raccoon_occ), latitudes(raccoon_occ),
          lab = "Raccoons", legend = :bottomright)
 
@@ -91,5 +95,7 @@ pred_map = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
 heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Probability of seeing a raccoon")
 
 ## Export figures
+savefig(temp_map, joinpath("fig", "temperature.png"))
+savefig(prec_map, joinpath("fig", "precipitation.png"))
 savefig(occ_map,  joinpath("fig", "occurrences.png"))
 savefig(pred_map, joinpath("fig", "predictions.png"))
