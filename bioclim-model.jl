@@ -107,7 +107,7 @@ pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
     heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
     scatter!(pred_map, [NaN NaN NaN NaN],
              c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
-             labels = ["High" "Medium" "Low" "Not suitable"],
+             labels = ["Low" "Medium" "High" "Not suitable"],
              legend = :outerbottomright, legendtitle = "Suitability",
              foreground_color_legend = nothing,
              legendtitlefontsize = 10)
