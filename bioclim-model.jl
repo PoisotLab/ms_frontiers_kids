@@ -6,6 +6,8 @@ using SimpleSDMLayers
 using StatsBase
 using Plots
 
+## Get occurrences & climatic data
+
 # Get the GBIF taxon
 raccoon = GBIF.taxon("Procyon lotor", rank=:SPECIES, strict=true)
 
@@ -25,20 +27,21 @@ end
 filter!(GBIF.have_ok_coordinates, raccoon_occ)
 length(raccoon_occ)
 
-scatter(longitudes(raccoon_occ), latitudes(raccoon_occ))
-
 # Get the temperature and precipitation
 temperature = clip(SimpleSDMLayers.worldclim(1), raccoon_occ)
 precipitation = clip(SimpleSDMLayers.worldclim(12), raccoon_occ)
 
-heatmap(temperature)
-scatter!(longitudes(raccoon_occ), latitudes(raccoon_occ), lab="")
+# Map raccoon occurrences
+occ_map = heatmap(temperature, xlab= "Longitude", ylab = "Latitude",
+                  colorbar_title = "Average Temperature", dpi = 150)
+scatter!(occ_map, longitudes(raccoon_occ), latitudes(raccoon_occ),
+         lab = "Raccoons", legend = :bottomright)
 
 # Extract the values of the layers at the positions
 histogram(temperature[raccoon_occ])
 histogram(precipitation[raccoon_occ])
 
-# Bioclim model
+## Bioclim model
 function _bioclim_score(x::Number)
     if isnan(x)
         return NaN
@@ -58,6 +61,7 @@ function bioclim(layer::T, records::GBIFRecords) where {T <: SimpleSDMLayer}
     return bioclim_prediction
 end
 
+# Get prediction for each variable
 temp_pred = bioclim(temperature, raccoon_occ)
 prec_pred = bioclim(precipitation, raccoon_occ)
 
@@ -72,5 +76,17 @@ function Base.min(l1::T, l2::T) where {T <: SimpleSDMLayer}
     return min_layer
 end
 
+# Get minimum prediction per site
 sdm_raccoon = min(temp_pred, prec_pred)
-heatmap(sdm_raccoon, c=:cividis, frame=:box, clim=(0,1))
+
+# Set value to NaN if prediction is zero
+replace!(x -> iszero(x) ? NaN : x, sdm_raccoon.grid)
+
+# Filter predictions with threshold
+threshold = quantile(filter(!isnan, sdm_raccoon.grid), 0.05)
+replace!(x -> x <= threshold ? NaN : x, sdm_raccoon.grid)
+
+# Map predictions
+pred_map = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude", dpi = 150)
+heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Probability of seeing a raccoon")
+
