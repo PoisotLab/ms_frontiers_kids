@@ -5,7 +5,10 @@ using GBIF
 using SimpleSDMLayers
 using StatsBase
 using Plots
+using ArchGDAL
+
 include("bioclim.jl")
+include("landcover.jl")
 
 ## Get occurrences & climatic data
 
@@ -31,6 +34,12 @@ length(raccoon_occ)
 # Get the temperature and precipitation
 temperature   = SimpleSDMLayers.worldclim(1)[(bottom = -60.0)]
 precipitation = SimpleSDMLayers.worldclim(12)[(bottom = -60.0)]
+# Get landcover data
+tree  = landcover(1)[(bottom = -60.0)]
+urban = landcover(2)[(bottom = -60.0)]
+water = landcover(3)[(bottom = -60.0)]
+# Combine variables
+vars = [temperature, precipitation, tree, urban, water]
 
 # Map raccoon occurrences
 temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
@@ -49,11 +58,10 @@ histogram(precipitation[raccoon_occ])
 ## Bioclim model
 
 # Get prediction for each variable
-temp_pred = bioclim(temperature, raccoon_occ)
-prec_pred = bioclim(precipitation, raccoon_occ)
+vars_predictions = bioclim.(vars, raccoon_occ)
 
 # Get minimum prediction per site
-sdm_raccoon = min(temp_pred, prec_pred)
+sdm_raccoon = reduce(min, vars_predictions)
 
 # Set value to NaN if prediction is zero
 replace!(x -> iszero(x) ? NaN : x, sdm_raccoon.grid)
