@@ -28,8 +28,8 @@ filter!(GBIF.have_ok_coordinates, raccoon_occ)
 length(raccoon_occ)
 
 # Get the temperature and precipitation
-temperature   = clip(SimpleSDMLayers.worldclim(1), raccoon_occ)
-precipitation = clip(SimpleSDMLayers.worldclim(12), raccoon_occ)
+temperature   = SimpleSDMLayers.worldclim(1)[(bottom = -60.0)]
+precipitation = SimpleSDMLayers.worldclim(12)[(bottom = -60.0)]
 
 # Map raccoon occurrences
 temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
