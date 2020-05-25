@@ -103,6 +103,13 @@ scatter!(pred_map, [NaN NaN NaN NaN],
              legend = :outerbottomright, legendtitle = "Suitability",
              foreground_color_legend = nothing,
              legendtitlefontsize = 10)
+plot!(pred_map, img, 
+        yflip = true,
+        inset = bbox(0.37, -0.22, 200px, 100px, :center),
+        subplot = 2,
+        grid = false, axis = false,
+        bg_inside = nothing
+    )
 
 ## Export figures
 savefig(temp_map, joinpath("fig", "temperature.png"))
