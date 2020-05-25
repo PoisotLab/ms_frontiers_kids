@@ -8,6 +8,7 @@ using Plots
 using ArchGDAL
 using Images
 using StatsPlots.PlotMeasures
+using ProgressMeter
 
 include("bioclim.jl")
 include("landcover.jl")
@@ -46,55 +47,40 @@ water = landcover(3)[(bottom = -60.0)]
 # Combine variables
 vars = [temperature, precipitation, tree, urban, water]
 
-# Map raccoon occurrences
+# Map climate variables
 temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
                    colorbar_title = "Temperature (° C)")
 prec_map = heatmap(precipitation, c = :blues, xlab= "Longitude", ylab = "Latitude",
                    colorbar_title = "Precipitation (mm)")
+
+# Map raccoon occurrences
+# Option 1: Regular markers & raccoon emoji on the side
 occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
                    colorbar = :none) |> x -> 
     scatter!(x, longitudes(raccoon_occ), latitudes(raccoon_occ),
          lab = "Raccoons", 
-         legend = :bottomright,
+         legend = :outerbottomright,
          foreground_color_legend = nothing, 
          size = (600, 400)
     ) |> x ->
     plot!(x, img, 
         yflip = true,
-        inset = bbox(0.415, -0.05, 40px, 20px, :center),
+        inset = bbox(0.415, -0.05, 200px, 100px, :center),
         subplot = 2,
         grid = false, axis = false,
         bg_inside = nothing
     )
-
-lon, lat = longitudes(raccoon_occ), latitudes(raccoon_occ)
-occ_map = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
-        colorbar = :none, size = (360,150).*2, 
-        ticks = false, margin = -1.9mm, aspect_ratio = 1) |> x -> 
-    scatter!(x, lon[1:3], lat[1:3])
-occ_map = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
-        colorbar = :none, size = (360,150).*2, 
-        ticks = false, margin = -1.9mm) |> x -> 
-    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
-        inset = (1, bbox(((lon[1]+180)/360)w - 20px, ((lat[1]+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
-        subplot = 2
-    ) |> x -> 
-    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
-        inset = (1, bbox(((lon[3]+180)/360)w - 20px, ((lat[3]+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
-        subplot = 3
-    )
-
-occ_map = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+# Option 2: Raccoon emojis as markers
+occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
     colorbar = :none, size = (360,150).*2, 
     ticks = false, margin = -1.9mm)
-using ProgressMeter
 @time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ), latitudes(raccoon_occ), 1:length(raccoon_occ))
-    plot!(occ_map, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+    plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
         inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
         subplot = i+1
     )
 end # ~ 4 minutes
-occ_map
+occ_map2
 
 ## Bioclim model
 
@@ -141,7 +127,8 @@ plot!(pred_map, img,
     )
 
 ## Export figures
-savefig(temp_map, joinpath("fig", "temperature.png"))
-savefig(prec_map, joinpath("fig", "precipitation.png"))
-savefig(plot(occ_map, dpi = 150),  joinpath("fig", "occurrences.png"))
-savefig(pred_map, joinpath("fig", "predictions.png"))
+savefig(plot(temp_map, dpi = 150), joinpath("fig", "temperature.png"))
+savefig(plot(prec_map, dpi = 150), joinpath("fig", "precipitation.png"))
+savefig(plot(occ_map,  dpi = 150), joinpath("fig", "occurrences.png"))
+savefig(plot(occ_map2, dpi = 150), joinpath("fig", "occurrences_emojis.png"))
+savefig(plot(pred_map, dpi = 150), joinpath("fig", "predictions.png"))
