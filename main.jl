@@ -67,20 +67,34 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
         bg_inside = nothing
     )
 
-lon1, lat1 = [longitudes(raccoon_occ)[1]], [latitudes(raccoon_occ)[1]]
-occ_map  = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
-    colorbar = :none, size = (360,150).*2, 
-    ticks = false, margin = -1.9mm, aspect_ratio = 1) |> x -> 
-    scatter!(x, lon1, lat1)
-occ_map  = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
-    colorbar = :none, size = (360,150).*2, 
-    ticks = false, margin = -1.9mm, aspect_ratio = 1) |> x -> 
-    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing, 
-        left_margin = .0mm,
-        inset = bbox(((lon1[1]+180)/360)w - 20px, ((lat1[1]+60)/150)h - 10px, 40px, 20px, :bottom, :left),
+lon, lat = longitudes(raccoon_occ), latitudes(raccoon_occ)
+occ_map = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+        colorbar = :none, size = (360,150).*2, 
+        ticks = false, margin = -1.9mm, aspect_ratio = 1) |> x -> 
+    scatter!(x, lon[1:3], lat[1:3])
+occ_map = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+        colorbar = :none, size = (360,150).*2, 
+        ticks = false, margin = -1.9mm) |> x -> 
+    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+        inset = (1, bbox(((lon[1]+180)/360)w - 20px, ((lat[1]+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
         subplot = 2
+    ) |> x -> 
+    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+        inset = (1, bbox(((lon[3]+180)/360)w - 20px, ((lat[3]+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
+        subplot = 3
     )
 
+occ_map = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none, size = (360,150).*2, 
+    ticks = false, margin = -1.9mm)
+using ProgressMeter
+@time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ), latitudes(raccoon_occ), 1:length(raccoon_occ))
+    plot!(occ_map, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+        inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
+        subplot = i+1
+    )
+end # ~ 4 minutes
+occ_map
 
 ## Bioclim model
 
@@ -129,5 +143,5 @@ plot!(pred_map, img,
 ## Export figures
 savefig(temp_map, joinpath("fig", "temperature.png"))
 savefig(prec_map, joinpath("fig", "precipitation.png"))
-savefig(occ_map,  joinpath("fig", "occurrences.png"))
+savefig(plot(occ_map, dpi = 150),  joinpath("fig", "occurrences.png"))
 savefig(pred_map, joinpath("fig", "predictions.png"))
