@@ -55,17 +55,29 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
                    colorbar = :none) |> x -> 
     scatter!(x, longitudes(raccoon_occ), latitudes(raccoon_occ),
          lab = "Raccoons", 
-         legend = :outerbottomright,
+         legend = :bottomright,
          foreground_color_legend = nothing, 
          size = (600, 400)
     ) |> x ->
     plot!(x, img, 
         yflip = true,
-        inset = bbox(0.415, -0.05, 200px, 100px, :center),
+        inset = bbox(0.415, -0.05, 40px, 20px, :center),
         subplot = 2,
         grid = false, axis = false,
         bg_inside = nothing
     )
+
+lon1, lat1 = [longitudes(raccoon_occ)[1]], [latitudes(raccoon_occ)[1]]
+occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none) |> x -> 
+    scatter!(x, lon1, lat1)
+occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none) |> x -> 
+    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+        inset = bbox(lon1[1]/180/2, -lat1[1]/75/2, 40px, 20px, :center),
+        subplot = 2
+    )
+
 
 ## Bioclim model
 
