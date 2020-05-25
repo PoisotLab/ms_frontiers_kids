@@ -68,13 +68,16 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
     )
 
 lon1, lat1 = [longitudes(raccoon_occ)[1]], [latitudes(raccoon_occ)[1]]
-occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
-    colorbar = :none) |> x -> 
+occ_map  = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none, size = (360,150).*2, 
+    ticks = false, margin = -1.9mm, aspect_ratio = 1) |> x -> 
     scatter!(x, lon1, lat1)
-occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
-    colorbar = :none) |> x -> 
-    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
-        inset = bbox(lon1[1]/180/2, -lat1[1]/75/2, 40px, 20px, :center),
+occ_map  = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none, size = (360,150).*2, 
+    ticks = false, margin = -1.9mm, aspect_ratio = 1) |> x -> 
+    plot!(x, img, yflip = true, grid = false, axis = false, bg_inside = nothing, 
+        left_margin = .0mm,
+        inset = bbox(((lon1[1]+180)/360)w - 20px, ((lat1[1]+60)/150)h - 10px, 40px, 20px, :bottom, :left),
         subplot = 2
     )
 
