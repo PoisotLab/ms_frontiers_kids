@@ -6,9 +6,14 @@ using SimpleSDMLayers
 using StatsBase
 using Plots
 using ArchGDAL
+using Images
+using StatsPlots.PlotMeasures
 
 include("bioclim.jl")
 include("landcover.jl")
+
+# Load raccoon emoji
+img = load("images/raccoon_openmoji.png")
 
 ## Get occurrences & climatic data
 
@@ -43,17 +48,24 @@ vars = [temperature, precipitation, tree, urban, water]
 
 # Map raccoon occurrences
 temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
-                   colorbar_title = "Temperature (° C)", dpi = 150)
+                   colorbar_title = "Temperature (° C)")
 prec_map = heatmap(precipitation, c = :blues, xlab= "Longitude", ylab = "Latitude",
-                   colorbar_title = "Precipitation (mm)", dpi = 150)
+                   colorbar_title = "Precipitation (mm)")
 occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
-                   colorbar = :none, dpi = 150)
-scatter!(occ_map, longitudes(raccoon_occ), latitudes(raccoon_occ),
-         lab = "Raccoons", legend = :bottomright)
-
-# Extract the values of the layers at the positions
-histogram(temperature[raccoon_occ])
-histogram(precipitation[raccoon_occ])
+                   colorbar = :none) |> x -> 
+    scatter!(x, longitudes(raccoon_occ), latitudes(raccoon_occ),
+         lab = "Raccoons", 
+         legend = :outerbottomright,
+         foreground_color_legend = nothing, 
+         size = (600, 400)
+    ) |> x ->
+    plot!(x, img, 
+        yflip = true,
+        inset = bbox(0.415, -0.05, 200px, 100px, :center),
+        subplot = 2,
+        grid = false, axis = false,
+        bg_inside = nothing
+    )
 
 ## Bioclim model
 
@@ -83,9 +95,9 @@ colorpick(cg::ColorGradient, n::Int) = RGB[cg[i] for i in LinRange(0, 1, n)]
 # Map predictions
 pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
                    xlab= "Longitude", ylab = "Latitude",
-                   framestyle = :box, dpi = 150, size = (600, 300))
-    heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
-    scatter!(pred_map, [NaN NaN NaN NaN],
+                   framestyle = :box, size = (600, 300))
+heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
+scatter!(pred_map, [NaN NaN NaN NaN],
              c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
              labels = ["Low" "Medium" "High" "Not suitable"],
              legend = :outerbottomright, legendtitle = "Suitability",
