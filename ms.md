@@ -50,6 +50,10 @@ If it’s raining, but the jacket is not clean… Well, you can either use a dir
 [labyrinth game]
 > We'll draw a labyrinth and a couple of instructions. Kids have to follow the instructions to find the right path in the labyrinth.
 
+Let's find together a raccoon!
+Here are some instructions that will help you to find the best path; from home, walk 3 steps down and 1 steps right, walk 1 step down, 1 step right and 5 steps down until the wall, following 3 steps right, 1 step up and 2 right [At this point, you should find a happy cloud that wisely is telling you that you are closer to our goal].
+Say goodbye to the cloud and walk 4 steps down, 5 right, 2 down, 1 right and, say hello to a sweet star and walk 2 steps up, turn 2 steps right until the wall, next you should walk 3 steps up, 1 right, 1 up, 1 left, 3 steps up, 1 right,  4 up, 1 right (again), 6 steps down, 1 right, 2 up, 1 right, and 3 steps down outside by the border of the wall, later 1 step right, and 5 steps up for finally found our beautiful raccoon!
+
 Computers can apply the same logic to our racoons problem: if it’s too cold and snowy, or too hot and dry, racoons will probably not be there.  
 If there’s no food they can eat, they will probably not be there either.  
 On the contrary, if there is a temperate forest, where the temperature is neither too cold nor too hot, and if there is enough clean water for them to drink, they might be present, hidden somewhere in the woods.  
