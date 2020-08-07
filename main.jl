@@ -5,7 +5,16 @@ using GBIF
 using SimpleSDMLayers
 using StatsBase
 using Plots
+using ArchGDAL
+using Images
+using StatsPlots.PlotMeasures
+using ProgressMeter
+
 include("bioclim.jl")
+include("landcover.jl")
+
+# Load raccoon emoji
+img = load("images/raccoon_openmoji.png")
 
 ## Get occurrences & climatic data
 
@@ -31,29 +40,55 @@ length(raccoon_occ)
 # Get the temperature and precipitation
 temperature   = SimpleSDMLayers.worldclim(1)[(bottom = -60.0)]
 precipitation = SimpleSDMLayers.worldclim(12)[(bottom = -60.0)]
+# Get landcover data
+tree  = landcover(1)[(bottom = -60.0)]
+urban = landcover(2)[(bottom = -60.0)]
+water = landcover(3)[(bottom = -60.0)]
+# Combine variables
+vars = [temperature, precipitation, tree, urban, water]
+
+# Map climate variables
+temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
+                   colorbar_title = "Temperature (° C)")
+prec_map = heatmap(precipitation, c = :blues, xlab= "Longitude", ylab = "Latitude",
+                   colorbar_title = "Precipitation (mm)")
 
 # Map raccoon occurrences
-temp_map = heatmap(temperature, c = :inferno, xlab= "Longitude", ylab = "Latitude",
-                   colorbar_title = "Temperature (° C)", dpi = 150)
-prec_map = heatmap(precipitation, c = :blues, xlab= "Longitude", ylab = "Latitude",
-                   colorbar_title = "Precipitation (mm)", dpi = 150)
+# Option 1: Regular markers & raccoon emoji on the side
 occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latitude",
-                   colorbar = :none, dpi = 150)
-scatter!(occ_map, longitudes(raccoon_occ), latitudes(raccoon_occ),
-         lab = "Raccoons", legend = :bottomright)
-
-# Extract the values of the layers at the positions
-histogram(temperature[raccoon_occ])
-histogram(precipitation[raccoon_occ])
+                   colorbar = :none) |> x -> 
+    scatter!(x, longitudes(raccoon_occ), latitudes(raccoon_occ),
+         lab = "Raccoons", 
+         legend = :outerbottomright,
+         foreground_color_legend = nothing, 
+         size = (600, 400)
+    ) |> x ->
+    plot!(x, img, 
+        yflip = true,
+        inset = bbox(0.415, -0.05, 200px, 100px, :center),
+        subplot = 2,
+        grid = false, axis = false,
+        bg_inside = nothing
+    )
+# Option 2: Raccoon emojis as markers
+occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none, size = (360,150).*2, 
+    ticks = false, margin = -1.9mm)
+@time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ), latitudes(raccoon_occ), 1:length(raccoon_occ))
+    plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+        inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
+        subplot = i+1
+    )
+end # ~ 4 minutes
+occ_map2
 
 ## Bioclim model
 
 # Get prediction for each variable
-temp_pred = bioclim(temperature, raccoon_occ)
-prec_pred = bioclim(precipitation, raccoon_occ)
+vars_predictions = bioclim.(vars, raccoon_occ)
 
 # Get minimum prediction per site
-sdm_raccoon = min(temp_pred, prec_pred)
+sdm_raccoon = reduce(min, vars_predictions)
 
 # Set value to NaN if prediction is zero
 replace!(x -> iszero(x) ? NaN : x, sdm_raccoon.grid)
@@ -75,17 +110,25 @@ colorpick(cg::ColorGradient, n::Int) = RGB[cg[i] for i in LinRange(0, 1, n)]
 # Map predictions
 pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
                    xlab= "Longitude", ylab = "Latitude",
-                   framestyle = :box, dpi = 150, size = (600, 300))
-    heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
-    scatter!(pred_map, [NaN NaN NaN NaN],
+                   framestyle = :box, size = (600, 300))
+heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
+scatter!(pred_map, [NaN NaN NaN NaN],
              c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
              labels = ["Low" "Medium" "High" "Not suitable"],
              legend = :outerbottomright, legendtitle = "Suitability",
              foreground_color_legend = nothing,
              legendtitlefontsize = 10)
+plot!(pred_map, img, 
+        yflip = true,
+        inset = bbox(0.37, -0.22, 200px, 100px, :center),
+        subplot = 2,
+        grid = false, axis = false,
+        bg_inside = nothing
+    )
 
 ## Export figures
-savefig(temp_map, joinpath("fig", "temperature.png"))
-savefig(prec_map, joinpath("fig", "precipitation.png"))
-savefig(occ_map,  joinpath("fig", "occurrences.png"))
-savefig(pred_map, joinpath("fig", "predictions.png"))
+savefig(plot(temp_map, dpi = 150), joinpath("fig", "temperature.png"))
+savefig(plot(prec_map, dpi = 150), joinpath("fig", "precipitation.png"))
+savefig(plot(occ_map,  dpi = 150), joinpath("fig", "occurrences.png"))
+savefig(plot(occ_map2, dpi = 150), joinpath("fig", "occurrences_emojis.png"))
+savefig(plot(pred_map, dpi = 150), joinpath("fig", "predictions.png"))
