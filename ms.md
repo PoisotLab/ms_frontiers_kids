@@ -50,9 +50,7 @@ If it’s raining, but the jacket is not clean… Well, you can either use a dir
 [labyrinth game]
 > We'll draw a labyrinth and a couple of instructions. Kids have to follow the instructions to find the right path in the labyrinth.
 
-Let's find together a raccoon! Here are some tips that would help you to find it. First, remember the thigs that they usually love, like garbage. Remember you cant jump over the garbage, you have to pass by a side. 
-Now, we must search a place with a tree were raccoons love to climb or a source or water. Once you reach until a tree, you are really close to a raccoon. Good luck to find it! 
-- Please, when you find it, don’t touch it. They love to have privacy.  
+Let's find together a raccoon! Here are some tips that would help you to find it. First, remember the thigs that they usually love, like garbage. Remember you cant jump over the garbage, you have to pass by a side. Now, we must search a place with a tree were raccoons love to climb or a source or water. Once you reach until a tree, you are really close to a raccoon. Good luck to find it!  (Please, when you find it, don’t touch it. They love to have privacy)  
 
 Computers can apply the same logic to our racoons problem: if it’s too cold and snowy, or too hot and dry, racoons will probably not be there.  
 If there’s no food they can eat, they will probably not be there either.  
