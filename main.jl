@@ -98,7 +98,7 @@ occ_map2 = emojimap(temperature, uniquedf.longitude, uniquedf.latitude, 125)
 ## Bioclim model
 
 # Get prediction for each variable
-vars_predictions = bioclim.(vars, raccoon_occ)
+vars_predictions = [bioclim(v, raccoon_occ) for v in vars]
 
 # Get minimum prediction per site
 sdm_raccoon = reduce(min, vars_predictions)
@@ -121,23 +121,25 @@ replace!(x -> x >= lim2 ? 1.0 : x, sdm_raccoon.grid)
 colorpick(cg::ColorGradient, n::Int) = RGB[cg[i] for i in LinRange(0, 1, n)]
 
 # Map predictions
-pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
-                   xlab= "Longitude", ylab = "Latitude",
-                   framestyle = :box, size = (600, 300))
-heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
-scatter!(pred_map, [NaN NaN NaN NaN],
-             c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
-             labels = ["Low" "Medium" "High" "Not suitable"],
-             legend = :outerbottomright, legendtitle = "Suitability",
-             foreground_color_legend = nothing,
-             legendtitlefontsize = 10)
-plot!(pred_map, img, 
-        yflip = true,
-        inset = bbox(0.37, -0.22, 200px, 100px, :center),
-        subplot = 2,
-        grid = false, axis = false,
-        bg_inside = nothing
-    )
+begin
+    pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
+                       xlab= "Longitude", ylab = "Latitude",
+                       framestyle = :box, size = (600, 300))
+    heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
+    scatter!(pred_map, [NaN NaN NaN NaN],
+                 c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
+                 labels = ["Low" "Medium" "High" "Not suitable"],
+                 legend = :outerbottomright, legendtitle = "Suitability",
+                 foreground_color_legend = nothing,
+                 legendtitlefontsize = 10)
+    plot!(pred_map, img, 
+            yflip = true,
+            inset = bbox(0.37, -0.23, 200px, 100px, :center),
+            subplot = 2,
+            grid = false, axis = false,
+            bg_inside = nothing
+        )
+end
 
 ## Export figures
 savefig(plot(temp_map, dpi = 150), joinpath("fig", "temperature.png"))
