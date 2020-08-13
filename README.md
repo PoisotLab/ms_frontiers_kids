@@ -9,4 +9,4 @@ Nice, but where could I see some more? Somewhere suitable for them!
 
 ![prediction](fig/predictions.png)
 
-<img src="images/raccoon_openmoji.png" width=5%>: Emoji provided by Openmoji
+<img src="images/raccoon_freepik_cropped.png" width=5%>: <a href="http://www.freepik.com">Designed by Freepik</a>
