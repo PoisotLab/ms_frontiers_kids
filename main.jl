@@ -14,7 +14,7 @@ include("bioclim.jl")
 include("landcover.jl")
 
 # Load raccoon emoji
-img = load("images/raccoon_openmoji.png")
+img = load("images/raccoon_freepik_cropped.png")
 
 ## Get occurrences & climatic data
 
@@ -61,7 +61,7 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
     ) |> x ->
     plot!(x, img, 
         yflip = true,
-        inset = bbox(0.415, -0.05, 200px, 100px, :center),
+        inset = bbox(0.4, -0.05, 150px, 75px, :center),
         subplot = 2,
         grid = false, axis = false,
         bg_inside = nothing
