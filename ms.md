@@ -71,4 +71,20 @@ Remember that regions with a high value, near 1, might contain a raccoon and tha
 Locate where you live in the world and see if it would be easy for you to find a racoon there!  
 Help us validate our model by verifying if there is indeed a racoon where we said there might be!  
 Does the map say there might be a racoon near your house but there’s no way to find a racoon there?  
-In your opinion, how could we have made the map more realistic? 
+In your opinion, how could we have made the map more realistic?
+
+Glosary :
+Species: Comprising related organisms that share common characteristics and are capable of interbreeding.
+
+Algorithm: An specific procedure for solving a well-defined computational problem.
+
+Life expectancy : Estimate of the average number of additional years that a living being of a given age can expect to live.
+
+Probability : Numerical measure of the likelihood that a particular event will occur.
+
+References: 
+•	Louppe, V., Leroy, B., Herrel, A. et al. Current and future climatic regions favourable for a globally introduced wild carnivore, the raccoon Procyon lotor. Sci Rep 9, 9174 (2019). https://doi.org/10.1038/s41598-019-45713-y
+•	Species Distribution Modelling: Contrasting presence-only models with plot abundance data; Gomes, V.H., IJff, S.D., Raes, N. et al. Species Distribution Modelling: Contrasting presence-only models with plot abundance data. Sci Rep 8, 1003 (2018). https://doi.org/10.1038/s41598-017-18927-1
+•	Suzanne Prange, Stanley D. Gehrt, Ernie P. Wiggers, Influences of Anthropogenic Resources on Raccoon (Procyon lotor) Movements and Spatial Distribution, Journal of Mammalogy, Volume 85, Issue 3, June 2004, Pages 483–490, https://doi.org/10.1644/1383946
+
+
