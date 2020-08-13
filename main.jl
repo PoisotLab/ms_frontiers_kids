@@ -14,7 +14,7 @@ include("bioclim.jl")
 include("landcover.jl")
 
 # Load raccoon emoji
-img = load("images/raccoon_openmoji.png")
+img = load("images/raccoon_freepik_cropped.png")
 
 ## Get occurrences & climatic data
 
@@ -33,13 +33,9 @@ while length(raccoon_occ) <= 2000
     end
 end
 
-# Hide the occurrences who do not match quality
-filter!(GBIF.have_ok_coordinates, raccoon_occ)
-length(raccoon_occ)
-
 # Get the temperature and precipitation
-temperature   = SimpleSDMLayers.worldclim(1)[(bottom = -60.0)]
-precipitation = SimpleSDMLayers.worldclim(12)[(bottom = -60.0)]
+temperature   = worldclim(1)[(bottom = -60.0)]
+precipitation = worldclim(12)[(bottom = -60.0)]
 # Get landcover data
 tree  = landcover(1)[(bottom = -60.0)]
 urban = landcover(2)[(bottom = -60.0)]
@@ -65,27 +61,44 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
     ) |> x ->
     plot!(x, img, 
         yflip = true,
-        inset = bbox(0.415, -0.05, 200px, 100px, :center),
+        inset = bbox(0.4, -0.05, 150px, 75px, :center),
         subplot = 2,
         grid = false, axis = false,
         bg_inside = nothing
     )
-# Option 2: Raccoon emojis as markers
-occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
-    colorbar = :none, size = (360,150).*2, 
-    ticks = false, margin = -1.9mm)
-@time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ), latitudes(raccoon_occ), 1:length(raccoon_occ))
-    plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
-        inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
-        subplot = i+1
-    )
-end # ~ 4 minutes
-occ_map2
+# Option 2: Raccoon emojis as markers (max 200 for now)
+function emojimap(layer, lons, lats, n)
+    lons = lons[1:n]
+    lats = lats[1:n]
+    emoji_map = heatmap(layer, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+        colorbar = :none, size = (360,150).*2, 
+        ticks = false, margin = -1.9mm)
+    @time @showprogress for (lon, lat, i) in zip(lons, lats, 1:n)
+        plot!(emoji_map, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+            inset = (1, bbox(((lon + 180)/360)w - 15px, ((lat+60)/150)h - 8px, 30px, 15px, :bottom, :left)),
+            subplot = i+1
+        )
+    end
+    return emoji_map
+end
+occ_map2 = emojimap(temperature, longitudes(raccoon_occ), latitudes(raccoon_occ), 200)
+
+# Option 3: Unique sites
+using DataFrames
+
+df = DataFrame(raccoon_occ)
+select!(df, :longitude, :latitude)
+filter!(x -> !ismissing(x.latitude) || !ismissing(x.longitude), df)
+df.gridlon = [SimpleSDMLayers._match_longitude(temperature, lon) for lon in df.longitude]
+df.gridlat = [SimpleSDMLayers._match_latitude(temperature, lat) for lat in df.latitude]
+uniquedf = unique(df, [:gridlon, :gridlat])
+
+occ_map2 = emojimap(temperature, uniquedf.longitude, uniquedf.latitude, 125)
 
 ## Bioclim model
 
 # Get prediction for each variable
-vars_predictions = bioclim.(vars, raccoon_occ)
+vars_predictions = [bioclim(v, raccoon_occ) for v in vars]
 
 # Get minimum prediction per site
 sdm_raccoon = reduce(min, vars_predictions)
@@ -98,33 +111,35 @@ threshold = quantile(filter(!isnan, sdm_raccoon.grid), 0.05)
 replace!(x -> x <= threshold ? NaN : x, sdm_raccoon.grid)
 
 # Group predictions in categories
-lim1 = 0.20
-lim2 = 0.60
-replace!(x -> x <= lim1 ? 0.0 : x, sdm_raccoon.grid)
-replace!(x -> lim1 < x < lim2 ? 0.5 : x, sdm_raccoon.grid)
+lim1 = 0.08
+lim2 = 0.25
 replace!(x -> x >= lim2 ? 1.0 : x, sdm_raccoon.grid)
+replace!(x -> lim1 < x < lim2 ? 0.5 : x, sdm_raccoon.grid)
+replace!(x -> x <= lim1 ? 0.0 : x, sdm_raccoon.grid)
 
 # Custom colorpicking function
 colorpick(cg::ColorGradient, n::Int) = RGB[cg[i] for i in LinRange(0, 1, n)]
 
 # Map predictions
-pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
-                   xlab= "Longitude", ylab = "Latitude",
-                   framestyle = :box, size = (600, 300))
-heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
-scatter!(pred_map, [NaN NaN NaN NaN],
-             c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
-             labels = ["Low" "Medium" "High" "Not suitable"],
-             legend = :outerbottomright, legendtitle = "Suitability",
-             foreground_color_legend = nothing,
-             legendtitlefontsize = 10)
-plot!(pred_map, img, 
-        yflip = true,
-        inset = bbox(0.37, -0.22, 200px, 100px, :center),
-        subplot = 2,
-        grid = false, axis = false,
-        bg_inside = nothing
-    )
+begin
+    pred_map = heatmap(temperature, c = :lightgrey, colorbar = :none,
+                       xlab= "Longitude", ylab = "Latitude",
+                       framestyle = :box, size = (600, 300))
+    heatmap!(pred_map, sdm_raccoon, c = :viridis, clim = (0,1), colorbar_title = "Suitability for raccoons")
+    scatter!(pred_map, [NaN NaN NaN NaN],
+                 c = [colorpick(cgrad(:viridis), 3)... :lightgrey],
+                 labels = ["Low" "Medium" "High" "Not suitable"],
+                 legend = :outerbottomright, legendtitle = "Suitability",
+                 foreground_color_legend = nothing,
+                 legendtitlefontsize = 10)
+    plot!(pred_map, img, 
+            yflip = true,
+            inset = bbox(0.36, -0.23, 150px, 75px, :center),
+            subplot = 2,
+            grid = false, axis = false,
+            bg_inside = nothing
+        )
+end
 
 ## Export figures
 savefig(plot(temp_map, dpi = 150), joinpath("fig", "temperature.png"))
