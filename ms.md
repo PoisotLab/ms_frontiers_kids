@@ -19,20 +19,18 @@
 Have you ever noticed how when we travel to a place far away, we stop seeing animals we usually see back home?  
 Or when that biologist on TV goes to a place that is really far from where you live, she shows a lot of birds, mammals and plants you have never seen before?  
 And how do we know where we can find those animals and plants?  
-We could try to explore every corner on Earth and list all living things that are present in each spot. 
-Scientists used to understand nature doing things like that, but that was a tremendous work.  
+We could try to explore every corner on Earth and list all living things that are present in each spot; scientists used to understand nature doing things like that, but that was a tremendous work.  
 But it turns out that ecologists can now use computers to answer these questions without having to leave their labs!  
 
-Imagine we want to know how far we should go to find a racoon.  
-You first need to know a little bit about them, like where they live and what they like to eat.  
+Imagine we want to know how far we should go to find a racoon, but we first need to know a little bit about them, like where they live and what they like to eat.  
 So you look them up and find a couple of information:  
-Their mating season happens around January and lasts approximately 63 days, after which the female gives birth to her offspring (4-6 cubs).  
-This is usually when you see groups of racoons, because they are mostly solitary when they are adults (***and who isn't? - kids cry - end of paper***).  
-At 10 months old, the baby racoons will be independent, hunting their own food and choosing a new place to live.  
-Their front legs are very sensitive, which is a very useful tool to discover what is on the menu when you have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs and rodents (such as rats).  
-With such a varied diet, they can take advantage of us, humans, by stealing our food and can thus live comfortably next to us during the next 10 years of their life expectancy.  
+Their mating season happens around January and lasts approximately 63 days, after which the female gives birth to her offspring (4-6 cubs). Then, when you see groups of racoons,
+it sure is a family taking a walk. At 10 months old, the baby racoons will be independent and will preffer to do thigs at their own way, hunting their own food and choosing a new place to live. 
+Their front legs are very sensitive, which is a very useful tool to discover what is on the menu when you have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs and rodents (such as rats). With such a varied diet and without a near forest with tree to climb and water to drink, they can take advantage of us, humans, by stealing our food and can thus live comfortably next to us during the next 10 years of their life expectancy.  
 Racoons are also great explorers! They are capable of running up to 15 miles per hour and of swimming, if necessary.  
-The ideal home for a raccoon is usually a wooded area near to a water source, but any quiet place with food and water can be a den. Once we know enough aspects about the requiremens that a raccon need for feeling comfortable and safe. Now imagine that there are biologists around the world communicating this information, it is a large amount of data!, here is when we need that computers help us to analyze the data and find the species. When we ask computers to help us find them, we have to provide them with some information, such as those we just described.  
+The ideal home for a raccoon is usually a wooded area near to a water source, but any quiet place with food and water can be a den. Once we know enough aspects about the requiremens that a raccon need for feeling comfortable and safe. 
+
+Now imagine that there are biologists around the world communicating this information, it is a large amount of data!, here is when we need that computers help us to analyze the data and find the species. When we ask computers to help us find them, we have to provide them with some information, such as those we just described.  
 
 We could also use the kind of climate the racoons we already found typically prefer, or even the known distribution of what racoons need to eat.  
 It might also be useful to know how long and where they can walk (Can they climb really high mountains? Can they cross rivers? What if there’s a completely different environment in the way, can they go through it?).  
