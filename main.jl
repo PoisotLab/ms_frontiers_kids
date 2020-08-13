@@ -134,7 +134,7 @@ begin
                  legendtitlefontsize = 10)
     plot!(pred_map, img, 
             yflip = true,
-            inset = bbox(0.37, -0.23, 200px, 100px, :center),
+            inset = bbox(0.36, -0.23, 150px, 75px, :center),
             subplot = 2,
             grid = false, axis = false,
             bg_inside = nothing
