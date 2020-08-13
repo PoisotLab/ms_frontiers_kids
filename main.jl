@@ -75,13 +75,13 @@ function emojimap(layer, lons, lats, n)
         ticks = false, margin = -1.9mm)
     @time @showprogress for (lon, lat, i) in zip(lons, lats, 1:n)
         plot!(emoji_map, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
-            inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
+            inset = (1, bbox(((lon + 180)/360)w - 15px, ((lat+60)/150)h - 8px, 30px, 15px, :bottom, :left)),
             subplot = i+1
         )
     end
     return emoji_map
 end
-occmap2 = emojimap(temperature, longitudes(raccoon_occ), latitudes(raccoon_occ), 200)
+occ_map2 = emojimap(temperature, longitudes(raccoon_occ), latitudes(raccoon_occ), 200)
 
 # Option 3: Unique sites
 using DataFrames
