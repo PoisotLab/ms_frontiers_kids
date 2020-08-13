@@ -32,9 +32,8 @@ At 10 months old, the baby racoons will be independent, hunting their own food a
 Their front legs are very sensitive, which is a very useful tool to discover what is on the menu when you have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs and rodents (such as rats).  
 With such a varied diet, they can take advantage of us, humans, by stealing our food and can thus live comfortably next to us during the next 10 years of their life expectancy.  
 Racoons are also great explorers! They are capable of running up to 15 miles per hour and of swimming, if necessary.  
-The ideal home for a raccoon is usually a wooded area near to a water source, but any quiet place with food and water can be a den.
+The ideal home for a raccoon is usually a wooded area near to a water source, but any quiet place with food and water can be a den. Once we know enough aspects about the requiremens that a raccon need for feeling comfortable and safe. Now imagine that there are biologists around the world communicating this information, it is a large amount of data!, here is when we need that computers help us to analyze the data and find the species. When we ask computers to help us find them, we have to provide them with some information, such as those we just described.  
 
-When we ask computers to help us find them, we have to provide them with some information, such as those we just described.  
 We could also use the kind of climate the racoons we already found typically prefer, or even the known distribution of what racoons need to eat.  
 It might also be useful to know how long and where they can walk (Can they climb really high mountains? Can they cross rivers? What if there’s a completely different environment in the way, can they go through it?).  
 Doing so, computers can start learning about racoons and their distribution.
