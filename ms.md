@@ -19,22 +19,26 @@
 Have you ever noticed how when we travel to a place far away, we stop seeing animals we usually see back home?  
 Or when that biologist on TV goes to a place that is really far from where you live, she shows a lot of birds, mammals and plants you have never seen before?  
 And how do we know where we can find those animals and plants?  
+
 We could try to explore every corner on Earth and list all living things that are present in each spot. 
 Scientists used to understand nature doing things like that, and we still want to know where all the living things are, but that was tremendous work to go all around the world sampling everything.  
 It turns out that ecologists can now use computers to answer these questions without having to leave their labs, and you can do that too!  
 
-Imagine we want to know how far we should go to find a racoon.  
-You first need to know a little bit about them, like where they live and what they like to eat.  
+Imagine we want to know how far we should go to find a racoon, but we first need to know a little bit about them, like where they live and what they like to eat.  
 So you look them up and find a couple of information:  
+
 Their mating season happens around January and lasts approximately two months, after which the female gives birth to her offspring (4-6 cubs).  
-This is usually when you see groups of racoons, because they are mostly solitary when they are adults.  
-When baby racoons are 10 months old they become independent and they start hunting their own food and choosing a new place to live.  
+Then, when you see groups of racoons, it sure is a family taking a walk.  
+At 10 months old, the baby racoons will be independent and will preffer to do thigs at their own way, hunting their own food and choosing a new place to live.  
+But how do raccoons choose their den?  
+Biologists discovered that raccoons usually select a wooded area near to a water source, but any quiet place with food and water can be a den.  
+And what about the dinner?  
 Their front legs are very sensitive, which is a very useful tool to discover what is on the menu when you have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs and rodents (such as rats).  
 With such a varied diet, they can take advantage of us, humans, because we are also omnivorous and we waste a lot of food.  
 Thus, raccoons can have a feast only using what we throw in the garbage every day!  
-Racoons are also great explorers! They are capable of running up to 15 miles per hour and of swimming, if necessary.  
-The ideal home for a raccoon is usually a wooded area near to a water source, but any quiet place with food and water can be a den.  
-All this information tell us a lot about where we have higher chances of finding a racoon: we can find them where there are trees, food (even garbage!) and water, and we can find more of them in the beggining of the year.
+Now imagine that there are biologists all around the world communicating this information; it is a large amount of data, right?  
+But all this information tell us a lot about where we have higher chances of finding a racoon: we can find them where there are trees, food (even garbage!) and water, and we can find more of them in the beggining of the year.  
+Here is when we need that computers help us to analyze the data and find the species.
 
 When we ask computers to help us find raccoons, we share with them what we already know about those animals, and then computers understand how the environment should be in order to host a raccoon.  
 Then we can show the computer a different environment, and it will tell us how likely it is that we find a raccoon there based ont he characteristics of this particular environment.  
@@ -79,7 +83,6 @@ Remember that regions with a high value, near 1, might contain a raccoon and tha
 The computer then answered our question with another map, like this one:
 ![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/predictions.png)
 
-
 See? The computer help us find where we should go first if we need to find a raccoon!  
 If the place has a high value, we should go there first because the chances are very high that we find a raccoon there.  
 Notice that sometimes the computer says that we should go to places where raccoons knowingly are not.  
@@ -91,4 +94,24 @@ Now it is your turn to be a scientist!
 Locate where you live in the world and see if it would be easy for you to find a racoon there.  
 Help us validate our computer's answer by verifying if there is indeed a racoon where we said there might be!  
 Does the map say there might be a racoon near your house but there’s no way to find a racoon there?  
-In your opinion, how could we have made the map more realistic? 
+In your opinion, how could we have made the map more realistic?
+
+### Glosary:
+
+**Species**: Comprising related organisms that share common characteristics and are capable of interbreeding.
+
+**Algorithm**: An specific procedure for solving a well-defined computational problem.
+
+**Life expectancy**: Estimate of the average number of additional years that a living being of a given age can expect to live.
+
+**Probability**: Numerical measure of the likelihood that a particular event will occur.
+
+### References: 
+
+Louppe, V., Leroy, B., Herrel, A. et al. Current and future climatic regions favourable for a globally introduced wild carnivore, the raccoon Procyon lotor. Sci Rep 9, 9174 (2019). https://doi.org/10.1038/s41598-019-45713-y
+
+Species Distribution Modelling: Contrasting presence-only models with plot abundance data; Gomes, V.H., IJff, S.D., Raes, N. et al. Species Distribution Modelling: Contrasting presence-only models with plot abundance data. Sci Rep 8, 1003 (2018). https://doi.org/10.1038/s41598-017-18927-1
+
+Suzanne Prange, Stanley D. Gehrt, Ernie P. Wiggers, Influences of Anthropogenic Resources on Raccoon (Procyon lotor) Movements and Spatial Distribution, Journal of Mammalogy, Volume 85, Issue 3, June 2004, Pages 483–490, https://doi.org/10.1644/1383946
+
+
