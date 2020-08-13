@@ -6,13 +6,13 @@
 - Francis  
 
 ### Outline
-1. Species are not everywhere: why? (focus on one specific species)
-1.1 How can we find them without having to look everywhere?
-1.2.What kind of questions we can ask computers
-2. What kind of information we give to computers
-3. How computers "think"
-4. What kind of answers computers give and how we can use them
-5. Interpret the map and invite for action - how far you have to go to see a "racoon"?
+
+    1. We want to know where species are  
+    2. We can do that using our computers: you can find them from home!  
+    3. Understand species requirements  
+    4. How computers learn about species requirements  
+    5. Our results  
+    6. Take home message (we can find species using computers YAY)  
 
 
 ### Main text
@@ -20,7 +20,7 @@ Have you ever noticed how when we travel to a place far away, we stop seeing ani
 Or when that biologist on TV goes to a place that is really far from where you live, she shows a lot of birds, mammals and plants you have never seen before?  
 And how do we know where we can find those animals and plants?  
 We could try to explore every corner on Earth and list all living things that are present in each spot. 
-That would be a tremendous work, and actually scientists started to understand nature doing things like that.  
+Scientists used to understand nature doing things like that, but that was a tremendous work.  
 But it turns out that ecologists can now use computers to answer these questions without having to leave their labs!  
 
 Imagine we want to know how far we should go to find a racoon.  
