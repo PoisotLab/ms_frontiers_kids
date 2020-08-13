@@ -75,13 +75,16 @@ In your opinion, how could we have made the map more realistic?
 
 Glosary :
 
-Species: Comprising related organisms that share common characteristics and are capable of interbreeding.
+Species: Organisms that share common characteristics and are capable of get offspring.
 
-Algorithm: An specific procedure for solving a well-defined computational problem.
+Algorithm: sequence of logical steps for solve a computational  problem.
 
-Life expectancy : Estimate of the average number of additional years that a living being of a given age can expect to live.
+Life expectancy : Estimate of the average number years that a living being can expect to live.
 
-Probability : Numerical measure of the likelihood that a particular event will occur.
+Probability :  Numerical measure of whether an event may or may not occur.
+
+Omnivorous: Living being that it can feed on plants and animals in its daily life, without having any preference.
+
 
 References: 
 
