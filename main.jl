@@ -70,7 +70,8 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
 occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
     colorbar = :none, size = (360,150).*2, 
     ticks = false, margin = -1.9mm)
-@time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ), latitudes(raccoon_occ), 1:length(raccoon_occ))
+n_emoji = 1:200
+@time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ)[n_emoji], latitudes(raccoon_occ)[n_emoji], n_emoji)
     plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
         inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
         subplot = i+1
