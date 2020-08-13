@@ -66,20 +66,22 @@ occ_map  = heatmap(temperature, c = :lightgrey, xlab= "Longitude", ylab = "Latit
         grid = false, axis = false,
         bg_inside = nothing
     )
-# Option 2: Raccoon emojis as markers
-begin
-    n_emoji = 1:200
-    occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+# Option 2: Raccoon emojis as markers (max 200 for now)
+function emojimap(layer, lons, lats, n)
+    lons = lons[1:n]
+    lats = lats[1:n]
+    emoji_map = heatmap(layer, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
         colorbar = :none, size = (360,150).*2, 
         ticks = false, margin = -1.9mm)
-    @time @showprogress for (lon, lat, i) in zip(longitudes(raccoon_occ)[n_emoji], latitudes(raccoon_occ)[n_emoji], n_emoji)
-        plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+    @time @showprogress for (lon, lat, i) in zip(lons, lats, 1:n)
+        plot!(emoji_map, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
             inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
             subplot = i+1
         )
     end
-    occ_map2
+    return emoji_map
 end
+occmap2 = emojimap(temperature, longitudes(raccoon_occ), latitudes(raccoon_occ), 200)
 
 # DataFrame attempt
 using DataFrames
@@ -92,19 +94,18 @@ df
 
 df_unique = unique(df, [:gridlon, :gridlat])
 
-begin
-    df200 = df_unique[1:200, :]
-    occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
-        colorbar = :none, size = (360,150).*2, 
-        ticks = false, margin = -1.9mm)
-    @time @showprogress for (lon, lat, i) in zip(df200.longitude, df200.latitude, 1:nrow(df200))
-        plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
-            inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
-            subplot = i+1
-        )
-    end
-    occ_map2
+occ_map2 = heatmap(temperature, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
+    colorbar = :none, size = (360,150).*2, 
+    ticks = false, margin = -1.9mm)
+n_emoji = 1:200
+df200 = df_unique[1:200, :]
+@time @showprogress for (lon, lat, i) in zip(df200.longitude, df200.latitude, 1:nrow(df200))
+    plot!(occ_map2, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
+        inset = (1, bbox(((lon + 180)/360)w - 20px, ((lat+60)/150)h - 10px, 40px, 20px, :bottom, :left)),
+        subplot = i+1
+    )
 end
+occ_map2
 
 ## Bioclim model
 
