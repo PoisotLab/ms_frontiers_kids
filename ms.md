@@ -60,7 +60,6 @@ Here are some tips that can help you to find it in the labyrinth below: first, r
 You may have not realized, but your brain made a series of decisions very similar to those that computers make.  
 Computers help us see life from the animal’s perspective, like you had to be in the raccoon's shoes to decide where to turn in each step of the labyrinth.  
 What would be the most reasonable choice for a raccoon's everyday problems, like where to find food, water or a potential partner to have offspring with?  
-However, because the world is changing, racoons will constantly be moving and adapting to new places, and having a common language with computers allow us to organize, to quantify and to understand what would be an ideal place to find a racoon now or in a near future.
 
 Computers give us different kinds of numbers (like probabilities).  
 According to the information we provided, they will calculate an unique number, between 0 and 1, for every place in the world.  
@@ -69,10 +68,27 @@ However, if this number is high, a raccoon might be hiding there somewhere.
 What's great with computers is that we can use these numbers to make beautiful maps!
 
 We made one such map using three types of information: the  precise location where some raccoons have been observed in the past, the temperatures, and the total precipitations that were recorded at these locations.  
-Our computer learned the suitable habitat for a raccoon, in terms of temperature and precipitation.  
-Regions with a similar climate were given a high value and regions with an unsuitable climate were given a low value.  
+Our first map looked like this:
+![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/occurrences_emojis.png)
+
+From this map, our computers learned about the characteristics of a suitable habitat for a raccoon, in terms of temperature and precipitation.  
+Then we asked our computers to look in the whole world what are the chances that we find a raccoon in each place, and it thought really hard for a while...  
+The computer then atributed values between 0 and 1 for each place, representing how high is the probability to find a raccoon there.  
+Regions with a similar climate had a high value, but regions with an unsuitable climate had low values.  
 Remember that regions with a high value, near 1, might contain a raccoon and that regions with a low value, near 0, might not contain any.  
-Locate where you live in the world and see if it would be easy for you to find a racoon there!  
-Help us validate our model by verifying if there is indeed a racoon where we said there might be!  
+The computer then answered our question with another map, like this one:
+![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/predictions.png)
+
+
+See? The computer help us find where we should go first if we need to find a raccoon!  
+If the place has a high value, we should go there first because the chances are very high that we find a raccoon there.  
+Notice that sometimes the computer says that we should go to places where raccoons knowingly are not.  
+There are ways to help the computer avoid these mistakes, but this is why it is so important that humans validate computers' answers, and use them only to gide our searches.  
+Because the world is changing, raccoons will constantly be moving and adapting to new places, making computers job even more valuable.  
+Having a common language with computers allow us to organize, to quantify and to understand what would be an ideal place to find a racoon now, but also in a near future.    
+
+Now it is your turn to be a scientist!  
+Locate where you live in the world and see if it would be easy for you to find a racoon there.  
+Help us validate our computer's answer by verifying if there is indeed a racoon where we said there might be!  
 Does the map say there might be a racoon near your house but there’s no way to find a racoon there?  
 In your opinion, how could we have made the map more realistic? 
