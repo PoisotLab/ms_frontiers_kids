@@ -33,13 +33,9 @@ while length(raccoon_occ) <= 2000
     end
 end
 
-# Hide the occurrences who do not match quality
-filter!(GBIF.have_ok_coordinates, raccoon_occ)
-length(raccoon_occ)
-
 # Get the temperature and precipitation
-temperature   = SimpleSDMLayers.worldclim(1)[(bottom = -60.0)]
-precipitation = SimpleSDMLayers.worldclim(12)[(bottom = -60.0)]
+temperature   = worldclim(1)[(bottom = -60.0)]
+precipitation = worldclim(12)[(bottom = -60.0)]
 # Get landcover data
 tree  = landcover(1)[(bottom = -60.0)]
 urban = landcover(2)[(bottom = -60.0)]
