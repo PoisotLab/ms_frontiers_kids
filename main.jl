@@ -111,11 +111,11 @@ threshold = quantile(filter(!isnan, sdm_raccoon.grid), 0.05)
 replace!(x -> x <= threshold ? NaN : x, sdm_raccoon.grid)
 
 # Group predictions in categories
-lim1 = 0.20
-lim2 = 0.60
-replace!(x -> x <= lim1 ? 0.0 : x, sdm_raccoon.grid)
-replace!(x -> lim1 < x < lim2 ? 0.5 : x, sdm_raccoon.grid)
+lim1 = 0.08
+lim2 = 0.25
 replace!(x -> x >= lim2 ? 1.0 : x, sdm_raccoon.grid)
+replace!(x -> lim1 < x < lim2 ? 0.5 : x, sdm_raccoon.grid)
+replace!(x -> x <= lim1 ? 0.0 : x, sdm_raccoon.grid)
 
 # Custom colorpicking function
 colorpick(cg::ColorGradient, n::Int) = RGB[cg[i] for i in LinRange(0, 1, n)]
