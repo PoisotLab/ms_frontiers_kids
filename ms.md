@@ -55,7 +55,7 @@ Who wouldn't be attracted to this trash buffet?
 Now let's try an experiment: let's find a raccoon together! 
 Here are some tips that can help you to find it in the labyrinth below: first, remember the thigs that they usually love, like garbage. If you pass near (not over!) a garbage bin, you are getting close! Next, find a place with a tree where raccoons love to climb. Finally, look for a source or water. Good luck to find it! Oh, and, please, don’t touch it when you find it. They love to have privacy!  
 
-![Raccoon labyrinth](https://github.com/PoisotLab/ms_frontiers_kids/blob/master/images/Laberinto%20Final%20.jpg)
+![Raccoon labyrinth](https://github.com/PoisotLab/ms_frontiers_kids/blob/master/images/Laberinto%20final.jpg)
 
 You may have not realized, but your brain made a series of decisions very similar to those that computers make.  
 Computers help us see life from the animal’s perspective, like you had to be in the raccoon's shoes to decide where to turn in each step of the labyrinth.  
