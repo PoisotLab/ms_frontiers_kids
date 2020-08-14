@@ -10,4 +10,9 @@ Francis is a PhD student in biology at the University of Montreal. His research 
 ### Norma
 
 
-### Gabriel 
+### Gabriel Dansereau
+
+Gabriel is an M.Sc student in biology at the University of Montreal. His 
+research interests are species distributions (where species are found) and 
+biodiversity hotspots (exceptional places where you can find either many species, few species, rare species, or unusual species combinations).
+
