@@ -12,7 +12,7 @@ Gracielle is a Phd candidate in ecology and evolution. She makes fake species an
 
 ### Gabriel Dansereau
 
-Gabriel is an M.Sc student in biology at the University of Montreal. His 
-research interests are species distributions (where species are found) and 
-biodiversity hotspots (exceptional places where you can find either many species, few species, rare species, or unusual species combinations).
+Gabriel is an M.Sc student in biology at the University of Montreal. His research interests are species distributions (where species are found) and biodiversity hotspots (exceptional places where you can find either many species, few species, rare species, or unusual species combinations).
 
+### Timothée Poisot
+Timothée Poisot is a computational ecologist interested in solving ecological questions using tools from data science, applied mathematics, and machine learning; his research focuses on understanding and predicting interactions between species.
