@@ -1,4 +1,4 @@
-# ms_frontiers_kids
+# When machines help us find raccoons and other living creatures
 Happy project to write a Frontiers For Young Minds paper!
 
 Ever wondered where raccoons are? Well they've been seen here: 
