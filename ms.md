@@ -73,14 +73,17 @@ If this number is low, you might not be able to find a raccoon there.
 However, if this number is high, a raccoon might be hiding there somewhere.  
 What's great with computers is that we can use these numbers to make beautiful maps!
 
-We made one such map using three types of information: the  precise location where some raccoons have been observed in the past, the temperatures, and the total precipitations that were recorded at these locations.  
+We made one such map using two types of information: the  precise location where some raccoons have been observed in the past, along with details on these 
+locations.
+The details were the location's temperature, its total precipitations, and whether or not it has trees, water, and urban places (meaning garbage!).
+Remember, these are the things we looked for in the labyrinth!
 Our first map looked like this:
 ![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/occurrences_emojis.png)
 
-From this map, our computers learned about the characteristics of a suitable habitat for a raccoon, in terms of temperature and precipitation.  
-Then we asked our computers to look in the whole world what are the chances that we find a raccoon in each place, and it thought really hard for a while...  
-The computer then atributed values between 0 and 1 for each place, representing how high is the probability to find a raccoon there.  
-Regions with a similar climate had a high value, but regions with an unsuitable climate had low values.  
+From this map, our computers learned about the characteristics of a suitable habitat for a raccoon, in terms of temperature, precipitation, trees, water, and garbage.
+Then we asked our computers to look in the whole world and tells us the chances that we find a raccoon in each place, so it thought really hard for a while...
+The computer then attributed values between 0 and 1 for each place, representing how high is the probability to find a raccoon there.  
+Regions with similar characteristics had a high value, but regions with unsuitable characteristics had low values.  
 Remember that regions with a high value, near 1, might contain a raccoon and that regions with a low value, near 0, might not contain any.  
 The computer then answered our question with another map, like this one:
 ![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/predictions.png)
