@@ -3,7 +3,9 @@
 
 - Gracielle  
 - Norma  
-- Francis  
+- Francis
+- Gabriel
+- Timothée  
 
 ### Outline
 
