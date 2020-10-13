@@ -22,11 +22,11 @@ Have you ever noticed how when we travel to a place far away, we stop seeing ani
 Or when that biologist on TV goes to a place that is really far from where you live, she shows a lot of birds, mammals, and plants you have never seen before?  
 And how do we know where we can find those animals and plants?  
 
-We could try to explore every corner on Earth and list all living things that are present in each spot. 
-Scientists used to understand nature doing things like that, and we still want to know where all the living things are, but that was tremendous work to go all around the world sampling everything.  
+We could try to explore every corner on Earth and list all living creatures that are present in each spot.
+Scientists used to understand nature doing things like that. We still want to know where all living creatures are, but that was tremendous work to go all around the world sampling everything.  
 It turns out that ecologists can now use computers to answer these questions without having to leave their labs, and you can do that too!  
 
-Imagine we want to know how far we should go to find a raccoon, but we first need to know a little bit about them, like where they live and what they like to eat.  
+Imagine you want to know how far you should go to find a raccoon. You first need to know a little bit about them, like where they live and what they like to eat.  
 So you look them up and find a couple of information:  
 
 Their mating season happens around January and lasts approximately two months, after which the female gives birth to her offspring (4-6 cubs).  
@@ -38,15 +38,16 @@ And what about dinner?
 Their front legs are very sensitive, which is a very useful tool to discover what is on the menu when you have an **omnivorous** diet, which means they eat plants, insects, frogs, eggs, and rodents (such as rats).  
 With such a varied diet, they can take advantage of us, humans, because we are also omnivorous and we waste a lot of food.  
 Thus, raccoons can have a feast only using what we throw in the garbage every day!  
-Now imagine that there are biologists all around the world communicating this information; it is a large amount of data, right?  
+Now imagine that there are biologists all around the world communicating this information; it is a large amount of **data**, right?  
 But all this information tells us a lot about where we have higher chances of finding a raccoon: we can find them where there are trees, food (even garbage!) and water, and we can find more of them in the beginning of the year.  
-Here is when we need computers to help us analyze the data and find the species.
+Here is when we need computers to help us analyze the data and find the **species**.
 
 When we ask computers to help us find raccoons, we share with them what we already know about those animals, and then computers understand how the environment should be in order to host a raccoon.  
 Then we can show the computer a different environment, and it will tell us how likely it is that we find a raccoon there based on the characteristics of this particular environment.  
 Once a computer has learned all about what we told it, it will think for a while.  
 But how do computers think?  
-They use something we call **algorithm**, which is a sequence of orders it follows to reach an answer.  
+They use something we call an **algorithm**, which is a sequence of orders they follow to reach a given answer.  
+We may not realize it, but we all take decisions on a daily basis in a similar way as computers do.
 For example, when we have to go outside, we have to decide what we should wear.  
 So we gather some information, such as which clean clothes are available and if it’s raining or not.  
 The following step would be to exclude options based on this information using a sequence of statements: if it’s raining, we'll wear a jacket and boots; if it’s not raining, we’ll wear a t-shirt.  
@@ -58,65 +59,55 @@ On the contrary, if there is a temperate forest, where the temperature is neithe
 They might also be present if there is a city or a village with lots of food for them to eat.  
 Who wouldn't be attracted to this trash buffet?
 
-Now let's try an experiment: let's find a raccoon together! 
-Here are some tips that can help you to find it in the labyrinth below: first, remember the things that they usually love, like garbage. If you pass near (not over!) a garbage bin, you are getting close! Next, find a place with a tree where raccoons love to climb. Finally, look for a source or water. Good luck to find it! Oh, and, please, don’t touch it when you find it. They love to have privacy!  
-
-![Raccoon labyrinth](https://github.com/PoisotLab/ms_frontiers_kids/blob/master/images/laberinto_fin.jpg)
-
-You may have not realized, but your brain made a series of decisions very similar to those that computers make.  
-Computers help us see life from the animal’s perspective, like you had to be in the raccoon's shoes to decide where to turn in each step of the labyrinth.  
-What would be the most reasonable choice for a raccoon's everyday problems, like where to find food, water or a potential partner to have offspring with?  
-
-Computers give us different kinds of numbers (like probabilities).  
-According to the information we provided, they will calculate a unique number, between 0 and 1, for every place in the world.  
+After running the algorithm, computers display a bunch of numbers (like **probabilities**) on the screen.  
+According to the information we have provided them, they calculated a unique number, between 0 and 1, for every place in the world.  
 If this number is low, you might not be able to find a raccoon there.  
 However, if this number is high, a raccoon might be hiding there somewhere.  
 What's great with computers is that we can use these numbers to make beautiful maps!
 
-We made one such map using two types of information: the  precise location where some raccoons have been observed in the past, along with details on these 
+We made one such map using two types of information: the precise location where some raccoons have been observed in the past, along with details on these
 locations.
-The details were the location's temperature, its total precipitations, and whether or not it has trees, water, and urban places (meaning garbage!).
-Remember, these are the things we looked for in the labyrinth!
+These details were the location's temperature, its total precipitations, and whether or not it has trees, water, and urban places (meaning garbage!).
 Our first map looked like this:
-![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/occurrences_emojis.png)
+![](fig/occurrences_emojis.png)
 
 From this map, our computers learned about the characteristics of a suitable habitat for a raccoon, in terms of temperature, precipitation, trees, water, and garbage.
-Then we asked our computers to look in the whole world and tells us the chances that we find a raccoon in each place, so it thought really hard for a while...
+Then we asked our computers to look in the whole world and to tell us the chances that we find a raccoon in each place, so it thought really hard for a while...
 The computer then attributed values between 0 and 1 for each place, representing how high is the probability to find a raccoon there.  
-Regions with similar characteristics had a high value, but regions with unsuitable characteristics had low values.  
+Regions with similar characteristics as the ones where racoons had previously been found had a high value, but regions with unsuitable characteristics had low values.  
 Remember that regions with a high value, near 1, might contain a raccoon and that regions with a low value, near 0, might not contain any.  
 The computer then answered our question with another map, like this one:
-![](https://github.com/PoisotLab/ms_frontiers_kids/blob/gd/map-emoji/fig/predictions.png)
+![](fig/predictions.png)
 
-See? The computer helped us find where we should go first if we need to find a raccoon!  
-If the place has a high value, we should go there first because the chances are very high that we find a raccoon there.  
+See? The computer helped us find where we should go first if we want to find a raccoon!  
+If the place has a high value, we should go there first because the chances are very high that we would find a raccoon there.  
 Notice that sometimes the computer says that we should go to places where raccoons knowingly are not.  
-There are ways to help the computer avoid these mistakes, but this is why it is so important that humans validate computers' answers, and use them only to guide our searches.  
+There are ways to help computers avoid making these mistakes, and this is why it is so important that humans validate computers' answers and use them only to guide our searches.  
 Because the world is changing, raccoons will constantly be moving and adapting to new places, making computers' jobs even more valuable.  
 Having a common language with computers allows us to organize, to quantify, and to understand what would be an ideal place to find a raccoon now, but also in a near future.    
 
 Now it is your turn to be a scientist!  
 Locate where you live in the world and see if it would be easy for you to find a raccoon there.  
-Help us validate our computer's answer by verifying if there is indeed a raccoon where we said there might be!  
+Help us validate our computer's answer by verifying if raccoons indeed live where we said they might be!  
 Does the map say there might be a raccoon near your house but there’s no way to find a raccoon there?  
 In your opinion, how could we have made the map more realistic?
 
 ### Glossary:
 
-**Species**: Comprising related organisms that share common characteristics and are capable of interbreeding.
-
 **Algorithm**: A specific procedure for solving a well-defined computational problem.
 
-**Life expectancy**: Estimate of the average number of additional years that a living being of a given age can expect to live.
+**Data**: Encoded information that can be used to answer specific questions.
+
+**Omnivorous**: Species that can eat plants and meat.
 
 **Probability**: Numerical measure of the likelihood that a particular event will occur.
 
-### References: 
+**Species**: A group of organisms that share common characteristics and are capable of interbreeding.
+
+### References:
 
 Louppe, V., Leroy, B., Herrel, A. et al. Current and future climatic regions favourable for a globally introduced wild carnivore, the raccoon Procyon lotor. Sci Rep 9, 9174 (2019). https://doi.org/10.1038/s41598-019-45713-y
 
 Species Distribution Modelling: Contrasting presence-only models with plot abundance data; Gomes, V.H., IJff, S.D., Raes, N. et al. Species Distribution Modelling: Contrasting presence-only models with plot abundance data. Sci Rep 8, 1003 (2018). https://doi.org/10.1038/s41598-017-18927-1
 
 Suzanne Prange, Stanley D. Gehrt, Ernie P. Wiggers, Influences of Anthropogenic Resources on Raccoon (Procyon lotor) Movements and Spatial Distribution, Journal of Mammalogy, Volume 85, Issue 3, June 2004, Pages 483–490, https://doi.org/10.1644/1383946
-
-
