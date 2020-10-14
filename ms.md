@@ -86,6 +86,11 @@ There are ways to help computers avoid making these mistakes, and this is why it
 Because the world is changing, raccoons will constantly be moving and adapting to new places, making computers' jobs even more valuable.  
 Having a common language with computers allows us to organize, to quantify, and to understand what would be an ideal place to find a raccoon now, but also in a near future.    
 
+One of the many advantages of apply computer science into biology is that let you search other living creatures additional to raccoons. For example, what if you want to observe other kind of animal that also prefer to live near to water sources and eat food at forest, but adaptable to sneaking through the garbage of humans when it is not easy to obtain food.
+Opossums belong to another biological taxon, but also have an omnivorous adaptable diet, nocturnal habits and the cubs stay with their mother during their first months of life. Even with these similarities, the ancestors of raccoons and opossum come from different regions, leaving their populations in locations in the world that do not always coincide between both species. 
+Despite the non-identical location of those species, computers help you to notice wich one are close to home, and the same happens if you were interested in animals with other behaviour too. 
+But why we can not find raccoons and opossum everywhere if they are adaptable to many kinds of places? Animal species could arrive to  places that have all the conditions to be a new home by many reasons, maybe because the environment has changed or because human makes it easier for them to move there... invasive species(?)
+
 Now it is your turn to be a scientist!  
 Locate where you live in the world and see if it would be easy for you to find a raccoon there.  
 Help us validate our computer's answer by verifying if raccoons indeed live where we said they might be!  
