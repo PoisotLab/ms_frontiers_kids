@@ -74,7 +74,7 @@ Our first map looked like this:
 From this map, our computers learned about the characteristics of a suitable habitat for a raccoon, in terms of temperature, precipitation, trees, water, and garbage.
 Then we asked our computers to look in the whole world and to tell us the chances that we find a raccoon in each place, so it thought really hard for a while...
 The computer then attributed values between 0 and 1 for each place, representing how high is the probability to find a raccoon there.  
-Regions with similar characteristics as the ones where racoons had previously been found had a high value, but regions with unsuitable characteristics had low values.  
+Regions with similar characteristics as the ones where raccoons had previously been found had a high value, but regions with unsuitable characteristics had low values.  
 Remember that regions with a high value, near 1, might contain a raccoon and that regions with a low value, near 0, might not contain any.  
 The computer then answered our question with another map, like this one:
 ![](fig/predictions.png)
@@ -89,8 +89,8 @@ Having a common language with computers allows us to organize, to quantify, and 
 One of the many advantages of applying computer science into biology is that it lets you look for all living creatures (and even *non living* things!) other than raccoons. For example, if you want to look for another kind of animal that behaves just like raccoons, maybe your maps will show you where opossums live!
 Opossums belong to another species, but also have an **omnivorous** diet, nocturnal habits and the cubs stay with their mother during their first months of life. Even with these similarities, the ancestors of raccoons and opossums come from different regions, leaving their populations in locations in the world that do not always coincide. 
 
-But why we can not find raccoons and opossum everywhere if they are adaptable to many kinds of places? Animal species could arrive to places that have all the conditions to be a new home by many reasons, maybe because the environment has changed or because humans make it easier for them to move there... On the other hand, it is not because a place is great to live that we want to move: these places are not good eneugh if our friends and family are not there.  
-Sometimes, when plants and animals move to a new place and their old friends are not with them, they can become a huge problem, and then we call them _invasive species_. They can reproduce too much, eat other species too much, or make another species reproduce too much as well. The kind of maps we did help us stay alert about where species could move and prevent them to stabilish there if needed, or even cautiously move them there if they are about to go extinct.
+But why can we not find raccoons and opossums everywhere if they are adaptable to many kinds of places? Animal species could arrive to places that have all the conditions to be a new home by many reasons, maybe because the environment has changed or because humans make it easier for them to move there... On the other hand, it is not because a place is great to live that we want to move: these places are not good enough if our friends and family are not there.  
+Sometimes, when plants and animals move to a new place and their old friends are not with them, they can become a huge problem, and then we call them _invasive species_. They can reproduce too much, eat other species too much, or make another species reproduce too much as well. The kind of maps we did help us stay alert about where species could move and prevent them from establishing there if needed, or even cautiously move them there if they are about to go extinct.
 
 Now it is your turn to be a scientist!  
 Locate where you live in the world and see if it would be easy for you to find a raccoon there.  
