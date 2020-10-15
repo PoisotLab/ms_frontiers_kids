@@ -72,7 +72,7 @@ function emojimap(layer, lons, lats, n)
     lats = lats[1:n]
     emoji_map = heatmap(layer, c = :lightgrey, # xlab= "Longitude", ylab = "Latitude",
         colorbar = :none, size = (360,150).*2, 
-        ticks = false, margin = -1.9mm)
+        ticks = false, margin = -1.9mm, box = :none)
     @time @showprogress for (lon, lat, i) in zip(lons, lats, 1:n)
         plot!(emoji_map, img, yflip = true, grid = false, axis = false, bg_inside = nothing,
             inset = (1, bbox(((lon + 180)/360)w - 15px, ((lat+60)/150)h - 8px, 30px, 15px, :bottom, :left)),
