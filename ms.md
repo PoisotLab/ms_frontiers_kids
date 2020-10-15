@@ -75,7 +75,7 @@ From this map, our computers learned about the characteristics of a suitable hab
 Then we asked our computers to look in the whole world and to tell us the chances that we find a raccoon in each place, so it thought really hard for a while...
 The computer then attributed values between 0 and 1 for each place, representing how high is the probability to find a raccoon there.  
 Regions with similar characteristics as the ones where raccoons had previously been found had a high value, but regions with unsuitable characteristics had low values.  
-Remember that regions with a high value, near 1, might contain a raccoon and that regions with a low value, near 0, might not contain any.  
+Remember that regions with a high suitability value might contain a raccoon and that regions with a low suitability value might not contain any.  
 The computer then answered our question with another map, like this one:
 ![](fig/predictions.png)
 
