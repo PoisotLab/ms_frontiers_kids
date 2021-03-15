@@ -142,8 +142,13 @@ begin
 end
 
 ## Export figures
+# Occurrence figure
+savefig(plot(occ_map2, dpi = 600), joinpath("fig", "occurrences_emojis.png"))
+savefig(plot(occ_map2, dpi = 600), joinpath("fig", "occurrences_emojis.svg"))
+# Predictions figure
+savefig(plot(pred_map, dpi = 600), joinpath("fig", "predictions.png"))
+savefig(plot(pred_map, dpi = 600), joinpath("fig", "predictions.svg"))
+# Extra figures
 savefig(plot(temp_map, dpi = 150), joinpath("fig", "temperature.png"))
 savefig(plot(prec_map, dpi = 150), joinpath("fig", "precipitation.png"))
 savefig(plot(occ_map,  dpi = 150), joinpath("fig", "occurrences.png"))
-savefig(plot(occ_map2, dpi = 150), joinpath("fig", "occurrences_emojis.png"))
-savefig(plot(pred_map, dpi = 150), joinpath("fig", "predictions.png"))
