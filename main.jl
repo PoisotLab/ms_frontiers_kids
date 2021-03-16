@@ -148,6 +148,7 @@ savefig(plot(occ_map2, dpi = 600), joinpath("fig", "occurrences_emojis.svg"))
 # Predictions figure
 savefig(plot(pred_map, dpi = 600), joinpath("fig", "predictions.png"))
 savefig(plot(pred_map, dpi = 600), joinpath("fig", "predictions.svg"))
+savefig(plot(pred_map, dpi = 1200), joinpath("fig", "predictions_1200.png"))
 # Extra figures
 savefig(plot(temp_map, dpi = 150), joinpath("fig", "temperature.png"))
 savefig(plot(prec_map, dpi = 150), joinpath("fig", "precipitation.png"))
