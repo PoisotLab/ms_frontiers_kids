@@ -5,7 +5,7 @@
 Francis is a PhD student in biology at the University of Montreal. His research focuses on the prediction of food-web structure (i.e. who eats who in a community of several species). He uses computers a lot to conduct his simulations.
 
 ### Gracielle
-Gracielle is a Phd candidate in ecology and evolution. She makes fake species and sees how they get along in a fake environment, so she can understand how the real world works. She loves reading, spending time in parks and playing with the videogame she assembled herself using a RaspberryPi.
+Gracielle is an ecologist trying to understand how the world works by making fake species in a fake environment, but also by translating parts of nature into numbers. Her dreams are to understand why species are distributed the way we see them today and to be fluent in French. She loves reading, spending time in parks and playing with the videogame she assembled herself using a RaspberryPi.
 
 ### Norma
 Norma is a PhD student in Biology at Universite de Montreal. His work focuses on understanding the behavior of diseases between animals and people, considering the the places where they live and how they are related, using computers to analyze all this information.
