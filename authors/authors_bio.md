@@ -2,7 +2,7 @@
 
 ### Francis Banville
 
-Francis is a PhD student in biology at the University of Montreal. His research focuses on the prediction of food-web structure (i.e. who eats who in a community of several species). He uses computers a lot to conduct his simulations.
+Francis is a PhD candidate in biology at the University of Montreal. His research focuses on the many interactions between species all over the world. More precisely, he uses mathematical and computational tools to predict how species interact in a given environment. In his free time he enjoys playing board games and running in the snowy streets of Montreal.
 
 ### Gracielle
 Gracielle is an ecologist trying to understand how the world works by making fake species in a fake environment, but also by translating parts of nature into numbers. Her dreams are to understand why species are distributed the way we see them today and to be fluent in French. She loves reading, spending time in parks and playing with the videogame she assembled herself using a RaspberryPi.
